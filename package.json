@@ -1,0 +1,87 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "git+https://github.com/riteshvish/rn-masonry.git",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "git+https://github.com/riteshvish/rn-masonry.git",
+        "spec": "git+https://github.com/riteshvish/rn-masonry.git",
+        "type": "hosted",
+        "hosted": {
+          "type": "github",
+          "ssh": "git@github.com:riteshvish/rn-masonry.git",
+          "sshUrl": "git+ssh://git@github.com/riteshvish/rn-masonry.git",
+          "httpsUrl": "git+https://github.com/riteshvish/rn-masonry.git",
+          "gitUrl": "git://github.com/riteshvish/rn-masonry.git",
+          "shortcut": "github:riteshvish/rn-masonry",
+          "directUrl": "https://raw.githubusercontent.com/riteshvish/rn-masonry/master/package.json"
+        }
+      },
+      "D:\\ghs\\ETApp"
+    ]
+  ],
+  "_from": "git+https://github.com/riteshvish/rn-masonry.git",
+  "_id": "rn-masonry@1.0.1",
+  "_inCache": true,
+  "_location": "/rn-masonry",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "git+https://github.com/riteshvish/rn-masonry.git",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "git+https://github.com/riteshvish/rn-masonry.git",
+    "spec": "git+https://github.com/riteshvish/rn-masonry.git",
+    "type": "hosted",
+    "hosted": {
+      "type": "github",
+      "ssh": "git@github.com:riteshvish/rn-masonry.git",
+      "sshUrl": "git+ssh://git@github.com/riteshvish/rn-masonry.git",
+      "httpsUrl": "git+https://github.com/riteshvish/rn-masonry.git",
+      "gitUrl": "git://github.com/riteshvish/rn-masonry.git",
+      "shortcut": "github:riteshvish/rn-masonry",
+      "directUrl": "https://raw.githubusercontent.com/riteshvish/rn-masonry/master/package.json"
+    }
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git+https://github.com/riteshvish/rn-masonry.git#a3b05b61e3aae592e652c0c55c486d32752a8818",
+  "_shasum": "004524151682ff3464096e80e19e41225db91a3a",
+  "_shrinkwrap": null,
+  "_spec": "git+https://github.com/riteshvish/rn-masonry.git",
+  "_where": "D:\\ghs\\ETApp",
+  "author": {
+    "name": "ritesh vishwakarma"
+  },
+  "bugs": {
+    "url": "https://github.com/riteshvish/rn-masonry/issues"
+  },
+  "dependencies": {},
+  "description": "react native masonry",
+  "devDependencies": {},
+  "gitHead": "a3b05b61e3aae592e652c0c55c486d32752a8818",
+  "homepage": "https://github.com/riteshvish/rn-masonry#readme",
+  "keywords": [
+    "react-native-masonry",
+    "masonry",
+    "rn-masonry"
+  ],
+  "license": "ISC",
+  "main": "index.js",
+  "name": "rn-masonry",
+  "optionalDependencies": {},
+  "readme": "## rn-masonry\r\n\r\n## Installation\r\n```\r\nnpm install rn-masonry --save\r\n```\r\n\r\n\r\nA easy to use react-native component to render a masonry layout for local and remote images with support for dynamic column rendering, Custom view inside masonry.\r\n\r\n\r\n\r\n\r\n\r\n## Preview\r\n\r\n![App preview](/ios.png)\r\n![App preview](/android.png)\r\n\r\n\r\n\r\n## Props\r\n\r\n### Masonry props\r\n\r\n| Props    | type   | description                                                                                             | required | default                          |\r\n|:----------|:--------|:---------------------------------------------------------------------------------------------------------|:----------------------------------|:------------|\r\n| data    | array | array of data for the data to be rendered | required |[]\r\n| renderView    | func(props) | function to render the card based on the View| required |\r\n| cols    | number | number of cols want to show | required | 2\r\n| gridPadding    | number | padding inside card | | 4\r\n| gridMargin    | number | space between two card\t | | 4\r\n| onScroll    | func | onScroll Event\t | |\r\n\r\n### MasonryImage props\r\n\r\n| Props    | type   | description                                                                                             | required | default                          |\r\n|:----------|:--------|:---------------------------------------------------------------------------------------------------------|:----------------------------------|:------------|\r\n| source    |object | source object like image | required |\r\n| resizeMode    | string| resizeMode object like image | | cover\r\n| style    |object|  | |\r\n\r\nsource will only work on object  **(required('../img.jpg') will not work)**\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n## Usage example 1\r\n\r\n\r\n```javascript\r\nimport {\r\nMasonryImage,Masonry\r\n} from 'rn-masonry';\r\n\r\n\r\n\r\n\r\n\r\nclass CustomView extends Component {\r\n\r\n  render() {\r\n\r\n    return (\r\n      <View style={[this.props.style,{backgroundColor:'#ccc'\r\n      ,borderRadius:5}]}>\r\n        <MasonryImage\r\n          resizeMode={\"cover\"}\r\n          gridWidth={this.props.gridWidth}\r\n          style={{borderRadius:5}}\r\n          source={{uri:this.props.data.uri}}>\r\n        </MasonryImage>\r\n        <Text>{this.props.data.title}</Text>\r\n      </View>\r\n\r\n    )\r\n  }\r\n}\r\n\r\nclass MasonryExample extends Component {\r\n  renderView(props) {\r\n    return (\r\n      <CustomView\r\n        {...props}\r\n      />\r\n    );\r\n  }\r\n  render() {  \r\n    let data=[]\r\n    var image=[\r\n        'http://image1.jpg',\r\n        'http://image2.jpg',\r\n        'http://image3.jpg'\r\n    ]\r\n    for (var i = 0; i < 50; i++) {\r\n      data.push({\"title\":\"Item \"+i,uri:image[parseInt(Math.random()*5)%3]})\r\n    }\r\n    return (\r\n      <View style={{flex:1}}>\r\n\r\n        <View style={{flex:1}}>\r\n          <Masonry\r\n            cols={3}\r\n            renderView={this.renderView}\r\n            gridPadding={5}\r\n            gridMargin={5}\r\n            data={data}\r\n            ></Masonry>\r\n        </View>\r\n      </View>\r\n\r\n    )\r\n  }\r\n}\r\n\r\nexport default MasonryExample ;\r\n\r\n```\r\n\r\n## Usage example 2 (pass onPress event )\r\n\r\n\r\n```javascript\r\n\r\nimport {\r\nMasonryImage,Masonry\r\n} from 'rn-masonry';\r\n\r\nclass CustomView extends Component {\r\n\r\n  render() {\r\n\r\n    return (\r\n      <TouchableOpacity style={[this.props.style,{backgroundColor:'#ccc'\r\n      ,borderRadius:5}]}\r\n        onPress={this.props.data.onPress}\r\n      >\r\n        <MasonryImage\r\n          resizeMode={\"cover\"}\r\n          gridWidth={this.props.gridWidth}\r\n          style={{borderRadius:5}}\r\n          source={{uri:this.props.data.uri}}>\r\n        </MasonryImage>\r\n        <Text>{this.props.data.title}</Text>\r\n      </TouchableOpacity>\r\n\r\n    )\r\n  }\r\n}\r\n\r\nclass MasonryExample extends Component {\r\n  renderView(props) {\r\n    return (\r\n      <CustomView\r\n        {...props}\r\n      />\r\n    );\r\n  }\r\n\r\n  onPress(data){\r\n    return () =>{\r\n      console.warn(data.title)\r\n    }\r\n  }\r\n  render() {\r\n\r\n    let data=[]\r\n\r\n    var image=[\r\n        'http://image1.jpg',\r\n        'http://image2.jpg',\r\n        'http://image3.jpg'\r\n    ]\r\n    //this.onPress(data object)\r\n    for (var i = 0; i < 50; i++) {\r\n      data.push({onPress:this.onPress({\"title\":\"Item \"+i}),\"title\":\"Item \"+i,uri:image[parseInt(Math.random()*5)%3]})\r\n    }\r\n\r\n    return (\r\n      <View style={{flex:1}}>\r\n\r\n        <View style={{flex:1}}>\r\n          <Masonry\r\n            cols={3}\r\n            renderView={this.renderView}\r\n            gridPadding={5}\r\n            gridMargin={5}\r\n            data={data}\r\n            ></Masonry>\r\n        </View>\r\n\r\n\r\n\r\n      </View>\r\n\r\n    )\r\n  }\r\n}\r\n\r\nexport default MasonryExample ;\r\n\r\n\r\n\r\n```\r\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/riteshvish/rn-masonry.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.1"
+}
